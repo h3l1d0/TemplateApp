@@ -1,6 +1,11 @@
 // src/router.tsx
-import { Routes, Route, Navigate } from 'react-router-dom'
-import HomePage from './pages/public/HomePage'
+import { Routes, Route } from "react-router-dom";
+import PublicLayout from "./components/layout/PublicLayout";
+import LandingPage from "./pages/public/LandingPage";
+import AboutPage from "./pages/public/AboutPage";
+import ContactPage from "./pages/public/ContactPage";
+import LoginPage from "./pages/public/LoginPage";
+import RegisterPage from "./pages/public/RegisterPage ";
 // si luego creas más páginas, sólo importa aquí:
 // import SettingsPage from './pages/SettingsPage'
 // import ProfilePage  from './pages/ProfilePage'
@@ -8,13 +13,13 @@ import HomePage from './pages/public/HomePage'
 export default function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      {/*
-        ejemplo de ruta extra:
-      <Route path="/settings" element={<SettingsPage />} />
-      */}
-      {/* Ruta comodín para 404: redirige a "/" */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route element={<PublicLayout />}>
+        <Route index element={<LandingPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
+      </Route>
     </Routes>
-  )
+  );
 }
