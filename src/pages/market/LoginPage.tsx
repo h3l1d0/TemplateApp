@@ -1,23 +1,22 @@
-// src/pages/public/LoginPage.tsx
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const navigate = useNavigate()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // TODO: llamar a tu servicio de auth
     if (!email || !password) {
-      setError('Por favor completa todos los campos.')
-      return
+      setError("Por favor completa todos los campos.");
+      return;
     }
     // Simulamos login exitoso
-    navigate('/dashboard')
-  }
+    navigate("/dashboard");
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
@@ -38,7 +37,7 @@ export default function LoginPage() {
             <input
               type="email"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 bg-transparent text-gray-900 dark:text-gray-100"
             />
           </div>
@@ -50,7 +49,7 @@ export default function LoginPage() {
             <input
               type="password"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 bg-transparent text-gray-900 dark:text-gray-100"
             />
           </div>
@@ -64,7 +63,7 @@ export default function LoginPage() {
         </form>
 
         <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-4">
-          ¿No tienes cuenta?{' '}
+          ¿No tienes cuenta?{" "}
           <Link
             to="/register"
             className="text-purple-600 hover:underline dark:text-purple-400"
@@ -74,5 +73,5 @@ export default function LoginPage() {
         </p>
       </div>
     </div>
-  )
+  );
 }

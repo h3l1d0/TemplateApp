@@ -1,4 +1,3 @@
-// src/components/ThemeToggle.tsx
 import { useDarkMode } from "../../hooks/useDarkMode";
 
 export default function ThemeToggle() {
